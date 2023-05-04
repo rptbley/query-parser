@@ -1,0 +1,40 @@
+.custom-textarea-container {
+	justify-content: center;
+	align-items: center;
+}
+
+.custom-textarea-label {
+	text-align: center;
+}
+
+.custom-textarea-content {
+	resize: none;
+	height: 40vh;
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #7185c452;
+	border-radius: 3rem;
+	padding: 2rem;
+}
+
+.custom-textarea-content:focus {
+	outline: none;
+	border: 2px solid #26357252;
+}
+
+.custom-button-default {
+	border: none;
+	border-radius: 0.5rem;
+	color: white;
+	font-size: 1rem;
+	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+	background-color: #7185c452;
+}
+
+.custom-button-default:hover {
+	background-color: #a3b1dc52;
+}
+
+.custom-button-default:active {
+	background-color: #2e51c252;
+}
