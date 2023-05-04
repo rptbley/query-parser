@@ -1,4 +1,8 @@
 node_modules
+.idea
+.vscode
+.prettierrc.json
+package-lock.json
 *.log
 .next
 app
