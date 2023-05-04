@@ -1,14 +1,12 @@
-import CustomSelectBox from 'renderer/components/custom/CustomSelectBox'
 import CustomTextArea from 'renderer/components/custom/CustomtextArea'
+import SearchTable from 'renderer/components/home/SearchTable'
 
 const Home = () => {
   return (
     <div className={'content'}>
       <div className={'add-container'}>
         <CustomTextArea name={'add Procedure'} changeEvent={() => { }} />
-        <div>
-          <CustomSelectBox placeholder={'choose table'} optionList={[]} />
-        </div>
+        <SearchTable />
       </div>
     </div>
   )

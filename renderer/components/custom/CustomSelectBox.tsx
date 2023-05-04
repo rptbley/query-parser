@@ -5,12 +5,15 @@ type Props = {
 
 const CustomSelectBox = ({ placeholder, optionList }: Props) => {
   return (
-    <select>
-      <option>{placeholder}</option>
-      {optionList.map((option) => (
-        <option value={option.value}>{option.name}</option>
-      ))}
-    </select>
+    <div className={'custom-select-container'}>
+      <div className={'custom-selected'}>
+        <div>{placeholder}</div>
+        <div className={'custom-dropdown-arrow'}>down</div>
+      </div>
+      <ul className={'custom-option-container'}>
+        <li className={'custom-option'}>test</li>
+      </ul>
+    </div>
   )
 }
 

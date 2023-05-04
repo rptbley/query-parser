@@ -38,3 +38,18 @@
 .custom-button-default:active {
 	background-color: #2e51c252;
 }
+
+.custom-select-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(auto, 1fr);
+}
+
+.custom-selected {
+	border: 2px solid #7185c452;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	column-gap: 1rem;
+}
