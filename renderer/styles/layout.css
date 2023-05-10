@@ -16,13 +16,13 @@ main {
 	color: white;
 	font-size: 2rem;
 	padding-left: 2rem;
-	background-color: #7185c452;
+	background-color: var(--base-color);
 }
 
 .side-bar {
 	grid-row: 2/3;
 	color: white;
-	background-color: #7185c452;
+	background-color: var(--base-color);
 }
 
 .side-bar-menu {
@@ -32,7 +32,7 @@ main {
 }
 
 .side-bar-menu-active {
-	color: #7185c452;
+	color: var(--base-color);
 	background-color: white;
 }
 
@@ -46,4 +46,9 @@ main {
 	margin: 0.5rem;
 	border-radius: 1rem;
 	background-color: white;
+	overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar {
+	display: none;
 }

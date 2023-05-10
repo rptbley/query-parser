@@ -1,27 +1,28 @@
 export type Schema = {
-	schemaName: string
-	tables: Table[]
+  schemaName: string
+  tables: Table[]
 }
 
 export type Table = {
-	tableName: string
-	columns: Column[]
+  tableName: string
+  columns: Column[]
 }
 
 export type Column = {
-	columnName: string
-	columnType: string
-	columnInfo: string
+  columnName: string
+  columnType: string
+  columnInfo: string
 }
 
 export type ParsedProcedure = {
-	comment: string
-	name: string
-	parameterList: ParsedProcedureParameter[]
-	columnList: Column[]
+  comment: string
+  name: string
+  parameterList: ParsedProcedureParameter[]
+  columnList: Column[]
 }
 
 export type ParsedProcedureParameter = {
-	parameterName: string
-	parameterInfo: string
+  parameterName: string
+  parameterType: string
+  parameterInfo: string
 }

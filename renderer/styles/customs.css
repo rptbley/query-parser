@@ -9,17 +9,18 @@
 
 .custom-textarea-content {
 	resize: none;
-	height: 40vh;
+	height: auto;
+	overflow-y: hidden;
 	width: 100%;
 	box-sizing: border-box;
-	border: 2px solid #7185c452;
+	border: 2px solid var(--base-color);
 	border-radius: 3rem;
-	padding: 2rem;
+	padding: 1rem 1rem 1rem 2rem;
 }
 
 .custom-textarea-content:focus {
 	outline: none;
-	border: 2px solid #26357252;
+	border: 2px solid var(--lightest-color);
 }
 
 .custom-button-default {
@@ -28,15 +29,15 @@
 	color: white;
 	font-size: 1rem;
 	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-	background-color: #7185c452;
+	background-color: var(--base-color);
 }
 
 .custom-button-default:hover {
-	background-color: #a3b1dc52;
+	background-color: var(--light-color);
 }
 
 .custom-button-default:active {
-	background-color: #2e51c252;
+	background-color: var(--darker-color);
 }
 
 .custom-select-container {
@@ -46,7 +47,7 @@
 }
 
 .custom-selected {
-	border: 2px solid #7185c452;
+	border: 2px solid var(--base-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;

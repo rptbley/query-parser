@@ -71,7 +71,7 @@ const useParser = () => {
 	const getProcedureParameterList = (parsedQuery: string): ParsedProcedureParameter[] => {
 		const result: ParsedProcedureParameter[] = []
 
-		const splitQuery = parsedQuery.split('IN ')[1]
+		const splitQuery = parsedQuery.split('(IN ')[1]
 		const parameterList = splitQuery.split(', IN ')
 
 		parameterList.forEach((parameter, index) => {
@@ -79,7 +79,8 @@ const useParser = () => {
 
 			result.push({
 				parameterName: parameterParts.shift(),
-				parameterInfo: parameterList.length - 1 === index ? parameterParts.join(' ').split(') comment')[0] : parameterParts.join(' '),
+				parameterType: parameterList.length - 1 === index ? parameterParts.join(' ').split(') comment')[0] : parameterParts.join(' '),
+				parameterInfo: '',
 			})
 		})
 

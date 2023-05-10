@@ -1,5 +1,20 @@
 .add-container {
 	display: grid;
-	grid-template-columns: 1fr 0.5fr;
-	column-gap: 1rem;
+	grid-template-rows: auto;
+	row-gap: 1rem;
+}
+
+.edit-container {
+	display: grid;
+	grid-template-columns: repeat(3, 0.2fr);
+}
+
+.edit-input {
+	width: 100%;
+	border: 1px solid #7185c452;
+	border-radius: 3rem;
+	box-sizing: border-box;
+	padding: 0.2rem 1rem 0.2rem 0.2rem;
+	font-size: 1rem;
+	text-align: right;
 }

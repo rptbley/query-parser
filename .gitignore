@@ -4,6 +4,7 @@ node_modules
 .prettierrc.json
 package-lock.json
 *.log
+*.txt
 .next
 app
 dist

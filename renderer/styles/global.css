@@ -1,4 +1,12 @@
-html, body {
-    margin: 0;
-    height: 100%;
+html,
+body {
+	margin: 0;
+	height: 100%;
+}
+
+:root {
+	--base-color: #144272;
+	--darker-color: #0a2647;
+	--light-color: #205295;
+	--lightest-color: #2c74b3;
 }
