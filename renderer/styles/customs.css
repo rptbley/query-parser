@@ -9,8 +9,7 @@
 
 .custom-textarea-content {
 	resize: none;
-	height: auto;
-	overflow-y: hidden;
+	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
 	border: 2px solid var(--base-color);

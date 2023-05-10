@@ -1,15 +1,5 @@
 import { atom } from 'recoil'
-import { Column, ParsedProcedure, ParsedProcedureParameter } from 'renderer/hooks/parser/types'
-
-export const parsedProcedureState = atom<ParsedProcedure>({
-	key: 'parsedProcedureState',
-	default: {
-		name: '',
-		comment: '',
-		parameterList: [],
-		columnList: [],
-	},
-})
+import { Column, ParsedProcedureParameter } from 'renderer/hooks/parser/types'
 
 export const procedureNameState = atom<string>({
 	key: 'procedureNameState',

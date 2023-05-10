@@ -53,12 +53,14 @@ const Home = () => {
 
 	return (
 		<div className={'content'}>
-			<div className={'add-container'}>
-				<CustomTextArea name={'add Procedure'} changeEvent={changeProcedure} />
-				<AddTable />
-				<CustomButtonDefault buttonName={'parsing procedure'} onClick={clickParsingButton} />
-				<EditResult />
+			<div className={'card-container'}>
+				<div>
+					<CustomTextArea name={'add Procedure'} changeEvent={changeProcedure} />
+					<AddTable />
+					<CustomButtonDefault buttonName={'parsing procedure'} onClick={clickParsingButton} />
+				</div>
 			</div>
+			<EditResult />
 		</div>
 	)
 }
