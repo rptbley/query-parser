@@ -1,21 +1,41 @@
 .card-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 	height: 100%;
-	box-sizing: border-box;
-	padding: 1rem;
-	background-color: var(--lightest-color);
-}
-
-.edit-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-}
-
-.edit-input {
 	width: 100%;
-	border: 1px solid #7185c452;
-	border-radius: 3rem;
-	box-sizing: border-box;
-	padding: 0.2rem 1rem 0.2rem 0.2rem;
-	font-size: 1rem;
-	text-align: right;
+	overflow-x: hidden;
+}
+
+.card {
+	position: absolute;
+	width: 90%;
+	height: 100%;
+	background-color: #bdc8d8;
+	transition: 1s;
+}
+
+.card-activate {
+	z-index: 2;
+}
+
+.card-deactivate {
+	right: 9%;
+	z-index: 1;
+}
+
+.first-card {
+	z-index: 1;
+}
+
+.first-card-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.second-card {
+	left: 100%;
+	z-index: 2;
+	background-color: blue;
 }

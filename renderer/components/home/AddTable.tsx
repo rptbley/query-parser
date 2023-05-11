@@ -1,11 +1,5 @@
-import CustomButtonDefault from '../custom/CustomButtonDefault'
-
 const AddTable = () => {
-  return (
-    <div>
-      <CustomButtonDefault buttonName={'add table'} onClick={() => { }} />
-    </div>
-  )
+	return <div>test</div>
 }
 
 export default AddTable

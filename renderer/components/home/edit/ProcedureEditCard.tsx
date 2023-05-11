@@ -1,13 +1,14 @@
 import { useRecoilValue } from 'recoil'
-import { procedureCommentState, procedureNameState } from 'renderer/recoil/parsedProcedure'
+import { procedureCommentState, procedureNameState, secondCardState } from 'renderer/recoil/homeAtoms'
 import EditColumns from './EditColumns'
 import EditParameters from './EditParameters'
 
-const EditResult = () => {
+const ProcedureEditCard = () => {
 	const comment = useRecoilValue(procedureCommentState)
 	const name = useRecoilValue(procedureNameState)
+
 	return (
-		<div>
+		<div className={`card second-card`}>
 			<div>{comment}</div>
 			<div>
 				{name}
@@ -18,4 +19,4 @@ const EditResult = () => {
 	)
 }
 
-export default EditResult
+export default ProcedureEditCard

@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { procedureParameterList } from 'renderer/recoil/parsedProcedure'
+import { procedureParameterList } from 'renderer/recoil/homeAtoms'
 
 const EditParameters = () => {
 	const [parameterList, setParameterList] = useRecoilState(procedureParameterList)

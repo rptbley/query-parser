@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { procedureColumnList } from 'renderer/recoil/parsedProcedure'
+import { procedureColumnList } from 'renderer/recoil/homeAtoms'
 
 const EditColumns = () => {
 	const [columnList, setColumnList] = useRecoilState(procedureColumnList)

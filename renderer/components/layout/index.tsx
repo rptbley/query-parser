@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 					<span>QUERY PARSER</span>
 				</div>
 				<SideBar />
-				<div className={'content-container'}>{children}</div>
+				{children}
 			</div>
 		</div>
 	)
