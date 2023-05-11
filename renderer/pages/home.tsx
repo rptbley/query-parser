@@ -1,4 +1,5 @@
-import ProcedureEditCard from 'renderer/components/home/edit/ProcedureEditCard'
+import ProcedureEditCard from 'renderer/components/home/ProcedureEditCard'
+import ProcedureResultCard from 'renderer/components/home/ProcedureResultCard'
 import ProcedureWriteCard from 'renderer/components/home/ProcedureWriteCard'
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
 			<div className={'card-container'}>
 				<ProcedureWriteCard />
 				<ProcedureEditCard />
+				<ProcedureResultCard />
 			</div>
 		</div>
 	)

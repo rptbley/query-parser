@@ -10,6 +10,6 @@ body {
 	--darker-color: #0a2647;
 	--light-color: #205295;
 	--lightest-color: #2c74b3;
-	--layout-width: 11vw;
-	--layout-height: 4.5vh;
+	--sidebar-width: 170px;
+	--sidebar-height: 4.5vh;
 }

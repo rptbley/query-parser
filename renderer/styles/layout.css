@@ -6,8 +6,8 @@ main {
 
 .layout-container {
 	display: grid;
-	grid-template-columns: var(--layout-width) calc(100vw - var(--layout-width));
-	grid-template-rows: var(--layout-height) calc(100vh - var(--layout-height));
+	grid-template-columns: var(--sidebar-width) calc(100vw - var(--sidebar-width));
+	grid-template-rows: var(--sidebar-height) calc(100vh - var(--sidebar-height));
 }
 
 .title {
@@ -25,6 +25,7 @@ main {
 	color: white;
 	background-color: var(--base-color);
 	padding: 0 0.7rem;
+	transition: 0.7s;
 }
 
 .side-bar-menu {
@@ -46,8 +47,21 @@ main {
 	padding: 0.5rem;
 	background-color: white;
 	overflow-y: scroll;
+	transition: 0.7s;
 }
 
 .content::-webkit-scrollbar {
 	display: none;
+}
+
+@media (max-width: 550px) {
+	.side-bar {
+		transform: translateX(calc(-1 * var(--sidebar-width)));
+		opacity: 0;
+	}
+
+	.content {
+		width: calc(100% + var(--sidebar-width));
+		transform: translateX(calc(-1 * var(--sidebar-width)));
+	}
 }

@@ -1,7 +1,14 @@
+import { useSetRecoilState } from 'recoil'
+import { procedureColumnList, procedureCommentState, procedureNameState, procedureParameterList } from 'renderer/recoil/homeAtoms'
 import { Column, ParsedProcedure, ParsedProcedureParameter, Table } from './types'
 import { AS_EXR, END_EXR, EXCLUDE_WORD_LIST, FUNCTION_KEYWORD_LIST, FUNC_END_EXR, LOWER_AS_EXR, SQL_TYPE_LIST, UPPER_AS_EXR } from './utils'
 
 const useParser = () => {
+	const setComment = useSetRecoilState(procedureCommentState)
+	const setName = useSetRecoilState(procedureNameState)
+	const setParameterList = useSetRecoilState(procedureParameterList)
+	const setColumnList = useSetRecoilState(procedureColumnList)
+
 	const getParsedTable = (rawTable: string): Table => {
 		return {
 			tableName: getTableName(rawTable),
@@ -43,15 +50,28 @@ const useParser = () => {
 
 	const getSplitedTableList = (rawTable: string): string[] => rawTable.replaceAll(/ +/, ' ').split(/\n/)
 
-	const getParsedProcedure = (rawQuery: string): ParsedProcedure => {
+	const getParsedProcedure = async (rawQuery: string) => {
 		const parsedQueryList = getParsedQueryList(rawQuery)
 
-		return {
-			comment: getProcedureComment(parsedQueryList[0]),
-			name: getProcedureName(parsedQueryList[0]),
-			parameterList: getProcedureParameterList(parsedQueryList[0]),
-			columnList: getProcedureResultList(parsedQueryList[1]),
+		const result = await reset()
+
+		if (result) {
+			setName(getProcedureComment(parsedQueryList[0]))
+			setComment(getProcedureName(parsedQueryList[0]))
+			setParameterList(getProcedureParameterList(parsedQueryList[0]))
+			setColumnList(getProcedureResultList(parsedQueryList[1]))
 		}
+	}
+
+	const reset = () => {
+		return new Promise<boolean>((resolve) => {
+			setComment('')
+			setName('')
+			setParameterList([])
+			setColumnList([])
+
+			resolve(true)
+		})
 	}
 
 	const getParsedQueryList = (rawQuery: string): string[] => rawQuery.replaceAll('\n', ' ').replaceAll('\t', '').replaceAll(/ +/g, ' ').split('BEGIN')

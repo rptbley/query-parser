@@ -12,30 +12,32 @@
 	position: absolute;
 	width: 90%;
 	height: 100%;
+	right: 5%;
+	opacity: 1;
+	z-index: 1;
 	background-color: #bdc8d8;
+	border-radius: 3rem;
 	transition: 1s;
 }
 
-.card-activate {
+.hidden-card {
+	right: -100%;
+	opacity: 0;
+}
+
+.top-card {
+	opacity: 1;
+	z-index: 3;
+}
+
+.middle-card {
+	right: 7.5%;
+	opacity: 0.5;
 	z-index: 2;
 }
 
-.card-deactivate {
-	right: 9%;
+.bottom-card {
+	right: 10%;
+	opacity: 0.5;
 	z-index: 1;
-}
-
-.first-card {
-	z-index: 1;
-}
-
-.first-card-content {
-	display: flex;
-	flex-direction: column;
-}
-
-.second-card {
-	left: 100%;
-	z-index: 2;
-	background-color: blue;
 }
