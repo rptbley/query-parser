@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil'
 import '@styles/global.css'
 import '@styles/layout.css'
 import '@styles/home.css'
+import '@styles/custom.css'
 
 const App = ({ pageProps, Component }: AppProps) => {
 	return (

@@ -2,6 +2,8 @@ import { ChangeEvent, useState } from 'react'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import useParser from 'renderer/hooks/parser/useParser'
 import { cardOrderSelector, cardOrderSelectorFamily, secondCardState } from 'renderer/recoil/homeAtoms'
+import CustomButton from '../custom/CustomButton'
+import CustomTextarea from '../custom/CustomTextarea'
 
 const ProcedureWriteCard = () => {
 	const { getParsedProcedure } = useParser()
@@ -21,9 +23,10 @@ const ProcedureWriteCard = () => {
 	const clickParsingButton = async () => {
 		if (rawProcedure === '') return
 		getParsedProcedure(rawProcedure)
+		openNextCard()
 	}
 
-	const test = () => {
+	const openNextCard = () => {
 		if (isSecondActive) return
 		setCardOrder('edit')
 		setIsSecondActive(true)
@@ -32,7 +35,17 @@ const ProcedureWriteCard = () => {
 	return (
 		<div className={`card ${cardOrder}`} onClick={() => (!isTop ? setCardOrder('write') : '')}>
 			<div className={`card-label ${!isTop ? 'card-label-active' : ''}`}>WRITE</div>
-			<button onClick={test}>test</button>
+			<div className={'card-content'}>
+				<div>
+					<CustomTextarea placeholder={'write your procedure'} defaultValue={rawProcedure} onChange={changeProcedure} />
+				</div>
+				<div>
+					<CustomButton buttonName={'add table'} onClick={() => {}} />
+				</div>
+				<div>
+					<CustomButton buttonName={'parse'} onClick={clickParsingButton} />
+				</div>
+			</div>
 		</div>
 	)
 }
