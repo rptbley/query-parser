@@ -18,6 +18,7 @@ const ProcedureEditCard = () => {
 
 	return (
 		<div className={`card ${isActive ? '' : 'hidden-card'} ${isActive ? cardOrder : ''}`} onClick={() => (cardOrder !== 'top-card' ? setCardOrder('edit') : '')}>
+			<div className={`card-label second-card-label ${cardOrder !== 'top-card' ? 'card-label-active' : ''}`}>EDIT</div>
 			<button onClick={test}>third active</button>
 			<div>
 				<h3>2</h3>

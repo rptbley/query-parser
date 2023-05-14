@@ -8,9 +8,7 @@ const ProcedureResultCard = () => {
 
 	return (
 		<div className={`card ${isActive ? '' : 'hidden-card'} ${isActive ? cardOrder : ''}`} onClick={() => setCardOrder('result')}>
-			<div>
-				<h3>3</h3>
-			</div>
+			<div className={`card-label third-card-label ${cardOrder !== 'top-card' ? 'card-label-active' : ''}`}>RESULT</div>
 		</div>
 	)
 }

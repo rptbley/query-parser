@@ -9,15 +9,42 @@
 }
 
 .card {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
 	position: absolute;
 	width: 90%;
 	height: 100%;
 	right: 5%;
 	opacity: 1;
 	z-index: 1;
-	background-color: #bdc8d8;
+	background-color: #e9ebee;
 	border-radius: 3rem;
-	transition: 1s;
+	transition: 0.7s ease-out;
+}
+
+.card-label {
+	width: 1.4rem;
+	font-size: 1.8rem;
+	padding-top: 10rem;
+	margin-left: 0.5rem;
+	padding-right: 0.5rem;
+	text-align: center;
+	opacity: 0;
+	word-break: break-all;
+	transition: 0.4s;
+}
+
+.second-card-label {
+	padding-top: 20rem;
+}
+
+.third-card-label {
+	padding-top: 30rem;
+}
+
+.card-label-active {
+	opacity: 1;
 }
 
 .hidden-card {
@@ -27,17 +54,19 @@
 
 .top-card {
 	opacity: 1;
+	box-shadow: -4px 0px 9px 0px;
 	z-index: 3;
 }
 
 .middle-card {
 	right: 7.5%;
+	box-shadow: -4px 0px 9px 0px;
 	opacity: 0.5;
 	z-index: 2;
 }
 
 .bottom-card {
 	right: 10%;
-	opacity: 0.5;
+	opacity: 0.25;
 	z-index: 1;
 }

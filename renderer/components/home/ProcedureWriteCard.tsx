@@ -10,6 +10,8 @@ const ProcedureWriteCard = () => {
 	const cardOrder = useRecoilValue(cardOrderSelectorFamily('write'))
 	const setCardOrder = useSetRecoilState(cardOrderSelector)
 
+	const isTop = cardOrder === 'top-card'
+
 	const changeProcedure = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		const value = e.target.value
 		const isValueEmpty = value === undefined || value.trim() === ''
@@ -28,9 +30,9 @@ const ProcedureWriteCard = () => {
 	}
 
 	return (
-		<div className={`card ${cardOrder}`} onClick={() => (cardOrder !== 'top-card' ? setCardOrder('write') : '')}>
-			<div>write procedure</div>
-			<div></div>
+		<div className={`card ${cardOrder}`} onClick={() => (!isTop ? setCardOrder('write') : '')}>
+			<div className={`card-label ${!isTop ? 'card-label-active' : ''}`}>WRITE</div>
+			<button onClick={test}>test</button>
 		</div>
 	)
 }
