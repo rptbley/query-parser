@@ -3,17 +3,12 @@ import { Column, ParsedProcedureParameter } from 'renderer/hooks/parser/types'
 
 export const secondCardState = atom<boolean>({
 	key: 'secondCardState',
-	default: false,
-})
-
-export const thirdCardState = atom<boolean>({
-	key: 'thirdCardState',
-	default: false,
+	default: false
 })
 
 export const cardOrderState = atom<string[]>({
 	key: 'cardOrderState',
-	default: ['write', 'edit', 'result'],
+	default: ['write', 'edit']
 })
 
 export const cardOrderSelector = selector<string>({
@@ -26,43 +21,42 @@ export const cardOrderSelector = selector<string>({
 			changeList.splice(targetIndex, 1)
 			return [newValue, ...changeList]
 		})
-	},
+	}
 })
 
-export const cardOrderSelectorFamily = selectorFamily<string, 'write' | 'edit' | 'result'>({
+export const cardOrderSelectorFamily = selectorFamily<string, 'write' | 'edit'>({
 	key: 'cardOrderSelectorFamily',
 	get:
 		(target) =>
-		({ get }) => {
-			const targetIndex = get(cardOrderState).indexOf(target)
+			({ get }) => {
+				const targetIndex = get(cardOrderState).indexOf(target)
 
-			switch (targetIndex) {
-				case 0:
-					return 'top-card'
-				case 1:
-					return 'middle-card'
-				case 2:
-					return 'bottom-card'
+				switch (targetIndex) {
+					case 0:
+						return 'top-card'
+					case 1:
+						return 'middle-card'
+				}
 			}
-		},
 })
 
 export const procedureNameState = atom<string>({
 	key: 'procedureNameState',
-	default: '',
+	default: ''
 })
 
 export const procedureCommentState = atom<string>({
 	key: 'procedureCommentState',
-	default: '',
+	default: ''
 })
 
 export const procedureParameterList = atom<ParsedProcedureParameter[]>({
 	key: 'procedureParameterList',
-	default: [],
+	default: []
 })
 
-export const procedureColumnList = atom<Column[]>({
+export const procedureColumnList = atom<Column[][]>({
 	key: 'procedureColumnList',
 	default: [],
+	dangerouslyAllowMutability: true
 })

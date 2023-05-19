@@ -1,7 +1,21 @@
 import { useSetRecoilState } from 'recoil'
-import { procedureColumnList, procedureCommentState, procedureNameState, procedureParameterList } from 'renderer/recoil/homeAtoms'
+import {
+	procedureColumnList,
+	procedureCommentState,
+	procedureNameState,
+	procedureParameterList
+} from 'renderer/recoil/homeAtoms'
 import { Column, ParsedProcedure, ParsedProcedureParameter, Table } from './types'
-import { AS_EXR, END_EXR, EXCLUDE_WORD_LIST, FUNCTION_KEYWORD_LIST, FUNC_END_EXR, LOWER_AS_EXR, SQL_TYPE_LIST, UPPER_AS_EXR } from './utils'
+import {
+	AS_EXR,
+	END_EXR,
+	EXCLUDE_WORD_LIST,
+	FUNCTION_KEYWORD_LIST,
+	FUNC_END_EXR,
+	LOWER_AS_EXR,
+	SQL_TYPE_LIST,
+	UPPER_AS_EXR
+} from './utils'
 
 const useParser = () => {
 	const setComment = useSetRecoilState(procedureCommentState)
@@ -12,7 +26,7 @@ const useParser = () => {
 	const getParsedTable = (rawTable: string): Table => {
 		return {
 			tableName: getTableName(rawTable),
-			columns: getTableColumnList(rawTable),
+			columns: getTableColumnList(rawTable)
 		}
 	}
 
@@ -27,7 +41,7 @@ const useParser = () => {
 			result.push({
 				columnName: tempList[1],
 				columnType: tempList[2],
-				columnInfo: tempList[tempList.length - 1],
+				columnInfo: tempList[tempList.length - 1]
 			})
 		}
 
@@ -56,8 +70,8 @@ const useParser = () => {
 		const result = await reset()
 
 		if (result) {
-			setName(getProcedureComment(parsedQueryList[0]))
-			setComment(getProcedureName(parsedQueryList[0]))
+			setName(getProcedureName(parsedQueryList[0]))
+			setComment(getProcedureComment(parsedQueryList[0]))
 			setParameterList(getProcedureParameterList(parsedQueryList[0]))
 			setColumnList(getProcedureResultList(parsedQueryList[1]))
 		}
@@ -78,7 +92,7 @@ const useParser = () => {
 
 	const getProcedureComment = (parsedQuery: string): string => {
 		const result = parsedQuery.split('comment')[1].match(/(?=')+.*(?=')/)
-		return result && result.length > 0 ? '==========' + result[0].replaceAll("'", '') + '==========' : ''
+		return result && result.length > 0 ? '==========' + result[0].replaceAll('\'', '') + '==========' : ''
 	}
 
 	const getProcedureName = (parsedQuery: string): string => {
@@ -100,15 +114,15 @@ const useParser = () => {
 			result.push({
 				parameterName: parameterParts.shift(),
 				parameterType: parameterList.length - 1 === index ? parameterParts.join(' ').split(') comment')[0] : parameterParts.join(' '),
-				parameterInfo: '',
+				parameterInfo: ''
 			})
 		})
 
 		return result
 	}
 
-	const getProcedureResultList = (parsedQuery: string): Column[] => {
-		const result: Column[] = []
+	const getProcedureResultList = (parsedQuery: string): Column[][] => {
+		const result: Column[][] = []
 		const selectList: string[] = []
 		const queryList: string[] = parsedQuery.split(';')
 
@@ -124,13 +138,13 @@ const useParser = () => {
 		return result
 	}
 
-	const parseSelect = (select: string, resultList: Column[]) => {
+	const parseSelect = (select: string, resultList: Column[][]) => {
 		if (select.indexOf('UNION') > -1) {
 			const tempSet = new Set<Column>()
 			select.split('UNION ALL').forEach((s) => getColumnList(s).forEach((columnObj) => tempSet.add(columnObj)))
-			resultList.push(...Array.from(tempSet))
+			resultList.push(Array.from(tempSet))
 		} else {
-			resultList.push(...getColumnList(select))
+			resultList.push(getColumnList(select))
 		}
 	}
 
@@ -198,7 +212,7 @@ const useParser = () => {
 	}
 
 	const checkColumn = (filteredColumn: string): boolean => {
-		if (filteredColumn.indexOf("'") > -1) return false
+		if (filteredColumn.indexOf('\'') > -1) return false
 
 		let result = true
 		EXCLUDE_WORD_LIST.forEach((excludeWord) => {
@@ -226,7 +240,7 @@ const useParser = () => {
 	return {
 		getParsedProcedure,
 		getParsedTable,
-		mergeTableColumnsToParsedProcedure,
+		mergeTableColumnsToParsedProcedure
 	}
 }
 

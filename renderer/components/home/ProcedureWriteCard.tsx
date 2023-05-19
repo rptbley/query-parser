@@ -22,7 +22,7 @@ const ProcedureWriteCard = () => {
 
 	const clickParsingButton = async () => {
 		if (rawProcedure === '') return
-		getParsedProcedure(rawProcedure)
+		await getParsedProcedure(rawProcedure)
 		openNextCard()
 	}
 
@@ -35,12 +35,13 @@ const ProcedureWriteCard = () => {
 	return (
 		<div className={`card ${cardOrder}`} onClick={() => (!isTop ? setCardOrder('write') : '')}>
 			<div className={`card-label ${!isTop ? 'card-label-active' : ''}`}>WRITE</div>
-			<div className={'card-content'}>
+			<div className={'first-card-content'}>
 				<div>
 					<CustomTextarea placeholder={'write your procedure'} defaultValue={rawProcedure} onChange={changeProcedure} />
 				</div>
 				<div>
-					<CustomButton buttonName={'add table'} onClick={() => {}} />
+					<CustomButton buttonName={'add table'} onClick={() => {
+					}} />
 				</div>
 				<div>
 					<CustomButton buttonName={'parse'} onClick={clickParsingButton} />

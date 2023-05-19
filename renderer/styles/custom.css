@@ -38,3 +38,9 @@
 .custom-textarea:focus {
 	outline: 1px solid var(--darker-color);
 }
+
+.custom-input {
+	border: 1px solid var(--lightest-color);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+}

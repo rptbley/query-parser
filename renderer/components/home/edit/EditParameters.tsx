@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
+import CustomInput from 'renderer/components/custom/CustomInput'
 import { procedureParameterList } from 'renderer/recoil/homeAtoms'
 
 const EditParameters = () => {
@@ -20,16 +21,12 @@ const EditParameters = () => {
 	}
 
 	return (
-		<div>
+		<div className={'edit-container'}>
 			{parameterList.map((parameter, index) => (
-				<div key={`procedureParameter_${index}`} className={'edit-container'}>
-					<div>{parameter.parameterName}</div>
-					<div>
-						<input className={'edit-input'} type={'text'} defaultValue={parameter.parameterType} onChange={(e: ChangeEvent<HTMLInputElement>) => changeParameter(index, e.target.value, false)} />
-					</div>
-					<div>
-						<input className={'edit-input'} type={'text'} defaultValue={parameter.parameterInfo} onChange={(e: ChangeEvent<HTMLInputElement>) => changeParameter(index, e.target.value, true)} />
-					</div>
+				<div key={`procedureParameter_${index}`} className={'edit-row'}>
+					{parameter.parameterName}
+					<CustomInput defaultValue={parameter.parameterType} placeholder={'write type'} onChange={(e: ChangeEvent<HTMLInputElement>) => changeParameter(index, e.target.value, false)} />
+					<CustomInput defaultValue={parameter.parameterInfo} placeholder={'write info'} onChange={(e: ChangeEvent<HTMLInputElement>) => changeParameter(index, e.target.value, true)} />
 				</div>
 			))}
 		</div>
